@@ -12,7 +12,9 @@
       </div>
 
       <!-- 카드 2 -->
-      <div class="rounded-xl overflow-hidden shadow-lg border border-gray-200">
+      <div
+        class="rounded-xl max-w-full max-h-full overflow-hidden shadow-lg border border-gray-200"
+      >
         <Weather></Weather>
       </div>
 

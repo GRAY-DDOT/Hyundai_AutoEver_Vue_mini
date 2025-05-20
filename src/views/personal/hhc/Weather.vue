@@ -1,5 +1,6 @@
 <script setup>
 import { computed } from 'vue'
+
 import { useRealTimeStore } from '@/stores/useRealTimeStore'
 
 // useRealTimeStore : 실시간 정보 전역 저장소
@@ -22,7 +23,6 @@ function formatTime(fcstDt) {
   return dateStr + timeStr
 }
 </script>
-
 
 // 이하의 접근 방법을 참고해서 출력
 <template>
