@@ -5,7 +5,7 @@
   </div>
 </template>
 
-<script scoped>
+<script setup>
 import BaseCard from '@/components/BaseCard.vue'
 </script>
 
