@@ -1,4 +1,5 @@
 import axios from 'axios'
+
 const API_KEY = '676d71577868796536364a486a684b'
 const BASE_URL = `http://openapi.seoul.go.kr:8088/${API_KEY}/json/citydata/1/5/가산디지털단지역`
 
@@ -14,14 +15,9 @@ export async function fetchRealTimeAll() {
     // api 요청 호출
     console.log('call fetchRealTimeAll')
     const { data } = await axios.get(BASE_URL)
-    if (data && data.length > 0) {
-      console.log('get success api response')
-      console.log(data)
-      return data.CITYDATA
-    } else {
-      console.error('No data found in the response')
-      return null
-    }
+    console.log('get success api response')
+    console.log(data.CITYDATA)
+    return data.CITYDATA
   } catch (e) {
     console.error('실시간 데이터 호출 실패', e)
     throw e

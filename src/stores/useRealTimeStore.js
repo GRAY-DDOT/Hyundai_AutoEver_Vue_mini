@@ -34,13 +34,14 @@ export const useRealTimeStore = defineStore('realTime', {
   }),
   // pinia 기능 중 actions : 상태 변경 메서드 정의
   actions: {
+    // 외부 직접 사용 금지 startAutoRefresh 호출 시 자동으로 호출됨
     async load() {
       await tryLoadDataAndCheckStateWhileFetch.call(this)
     },
     // 10분마다 자동 갱신 => 랜더링 기준 최상위 컴포넌트에서 호출
     startAutoRefresh() {
       this.load()
-      console.log('5 min passed : startAutoRefresh')
+      console.log('5 min passed or initial call : startAutoRefresh')
       setInterval(() => this.load(), 600000)
     }
   },
@@ -125,13 +126,18 @@ async function tryLoadDataAndCheckStateWhileFetch() {
   this.loading = true
   // 에러 초기화
   this.error = null
+
+  console.log('call tryLoadDataAndCheckStateWhileFetch')
+
   try {
     // API 호출
     this.raw = await fetchRealTimeAll()
   } catch (e) { // 에러 발생 시
     this.error = e
+    console.error('tryLoadDataAndCheckStateWhileFetch error', e)
   } finally {
     // 로딩 종료
     this.loading = false
+    console.log('tryLoadDataAndCheckStateWhileFetch finally')
   }
 }
