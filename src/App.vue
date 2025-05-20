@@ -11,3 +11,5 @@ import { useModalStore } from './stores/modal'
 
 useModalStore()
 </script>
+
+<style></style>
