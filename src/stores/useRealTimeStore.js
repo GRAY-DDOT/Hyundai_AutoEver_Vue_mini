@@ -28,9 +28,9 @@ export const useRealTimeStore = defineStore('realTime', {
   // loading : 로딩 상태(기본 값)
   // error :
   state: () => ({
-    raw: null,         // 원시 CITYDATA
+    raw: null, // 원시 CITYDATA
     loading: false,
-    error: null
+    error: null,
   }),
   // pinia 기능 중 actions : 상태 변경 메서드 정의
   actions: {
@@ -43,7 +43,7 @@ export const useRealTimeStore = defineStore('realTime', {
       this.load()
       console.log('5 min passed or initial call : startAutoRefresh')
       setInterval(() => this.load(), 600000)
-    }
+    },
   },
   getters: {
     /**
@@ -55,7 +55,7 @@ export const useRealTimeStore = defineStore('realTime', {
       return {
         isLoinding: state.loading,
         isError: state.error !== null,
-        isEmpty: state.raw === null
+        isEmpty: state.raw === null,
       }
     },
 
@@ -66,7 +66,6 @@ export const useRealTimeStore = defineStore('realTime', {
      * @returns {boolean}
      */
     isLoading: (state) => state.loading === true,
-
 
     /**
      * RealTimeStore-isError
@@ -82,7 +81,7 @@ export const useRealTimeStore = defineStore('realTime', {
      * @param state
      * @returns {boolean}
      */
-    isEmpty: (state) => state.raw === null
+    isEmpty: (state) => state.raw === null,
 
     // Store 내부 책임이 너무 많은 것 같아 데이터 게터들은 추출 예정
     // /**
@@ -116,9 +115,7 @@ export const useRealTimeStore = defineStore('realTime', {
     //  * @returns {*|{}}
     //  */
     // liveSubPpltn: (state) => state.raw?.LIVE_SUB_PPLTN ?? {}
-
-
-  }
+  },
 })
 
 async function tryLoadDataAndCheckStateWhileFetch() {
@@ -132,7 +129,8 @@ async function tryLoadDataAndCheckStateWhileFetch() {
   try {
     // API 호출
     this.raw = await fetchRealTimeAll()
-  } catch (e) { // 에러 발생 시
+  } catch (e) {
+    // 에러 발생 시
     this.error = e
     console.error('tryLoadDataAndCheckStateWhileFetch error', e)
   } finally {

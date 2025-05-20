@@ -17,7 +17,6 @@ useModalStore()
 onMounted(() => {
   store.startAutoRefresh()
 })
-
 </script>
 
 <style></style>
