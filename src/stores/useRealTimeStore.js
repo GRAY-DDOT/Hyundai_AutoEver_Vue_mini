@@ -30,7 +30,6 @@ export const useRealTimeStore = defineStore('realTime', {
   // error :
   state: () => ({
     raw: null, // 원시 CITYDATA
-    raw: null, // 원시 CITYDATA
     loading: false,
     error: null,
   }),

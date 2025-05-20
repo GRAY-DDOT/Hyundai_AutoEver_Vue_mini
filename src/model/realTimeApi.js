@@ -2,7 +2,6 @@ import axios from 'axios'
 
 const API_KEY = '676d71577868796536364a486a684b'
 const BASE_URL = `http://openapi.seoul.go.kr:8088/${API_KEY}/json/citydata/1/5/가산디지털단지역`
-const BASE_URL = `http://openapi.seoul.go.kr:8088/${API_KEY}/json/citydata/1/5/가산디지털단지역`
 
 /**
  * Fetch real-time data from the API
