@@ -16,15 +16,7 @@
 
       <!-- 카드 2 -->
       <div class="rounded-xl overflow-hidden shadow-lg border border-gray-200">
-        <img
-          src="https://via.placeholder.com/400x250"
-          alt="Room Image"
-          class="w-full h-48 object-cover"
-        />
-        <div class="p-4 space-y-2">
-          <h2 class="text-lg font-semibold">제주 오션뷰 펜션</h2>
-          <p class="text-sm text-gray-500">1박에 80,000원 · ⭐ 4.7 · 리뷰 18개</p>
-        </div>
+        <Weather></Weather>
       </div>
 
       <!-- 카드 3 -->
@@ -55,3 +47,7 @@
     </div>
   </main>
 </template>
+
+<script setup>
+import Weather from '../views/personal/hhc/Weather.vue'
+</script>
