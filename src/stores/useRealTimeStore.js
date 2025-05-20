@@ -1,5 +1,6 @@
 // src/stores/useRealTimeStore.js
 import { defineStore } from 'pinia'
+
 import { fetchRealTimeAll } from '@/model/realTimeApi.js'
 // import dayjs from 'dayjs'
 
@@ -28,6 +29,7 @@ export const useRealTimeStore = defineStore('realTime', {
   // loading : 로딩 상태(기본 값)
   // error :
   state: () => ({
+    raw: null, // 원시 CITYDATA
     raw: null, // 원시 CITYDATA
     loading: false,
     error: null,
