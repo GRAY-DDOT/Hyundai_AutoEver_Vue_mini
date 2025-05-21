@@ -38,3 +38,5 @@ src/components.d.ts
 .yarn/
 .pnp.*
 .yarnrc.yml
+package-lock.json
+yarn.lock
