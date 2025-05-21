@@ -21,15 +21,13 @@
 
         <!-- 소희 -->
         <div
-          class="flex justify-center h-96 rounded-xl-full overflow-auto shadow-lg border border-gray-200"
-          @click=""
+          class="flex justify-center h-96 rounded-xl-full overflow-hidden shadow-lg border border-gray-200"
         >
           <Subway />
         </div>
         <!-- 카드 4 -->
         <div
-          class="rounded-xl max-w-full max-h-full overflow-hidden shadow-lg border border-gray-200 flex justify-center items-center cursor-pointer"
-          @click="openAirModal"
+          class="rounded-xl max-w-full max-h-full overflow-hidden shadow-lg border border-gray-200"
         >
           <air />
         </div>
@@ -40,18 +38,8 @@
 
 <script setup>
 import Weather from '../views/personal/hhc/Weather.vue'
+
 import Subway from './personal/ksh/Subway.vue'
 import air from './personal/ktm/air.vue'
 import Traffic from './personal/ccw/Traffic.vue'
-
-import { useAirModalStore } from '@/stores/airmodal'
-import { fetchAirAll } from '@/model/api_air'
-const airModal = useAirModalStore()
-const airList = ref([])
-
-const openAirModal = async () => {
-  const data = await fetchAirAll()
-  airList.value = data
-  airModal.open({ title: '서울시', airList })
-}
 </script>
