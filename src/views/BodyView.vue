@@ -28,7 +28,7 @@
         </div>
         <!-- 카드 4 -->
         <div
-          class="rounded-xl max-w-full max-h-full overflow-hidden shadow-lg border border-gray-200 flex justify-center items-center cursor-pointer"
+          class="flex justify-center items-center h-96 rounded-xl overflow-auto shadow-lg border border-gray-200 cursor-pointer"
           @click="openAirModal"
         >
           <air />
