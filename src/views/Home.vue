@@ -1,9 +1,17 @@
 <template>
   <div class="flex flex-col min-h-screen">
-    <header class="h-24 bg-sky-950 text-white text-4xl">
-      <div></div>
-      <div class="w-full h-full mx-auto flex justify-center items-center font-semibold">
-        가디의삶
+    <header class="h-24 bg-sky-950 text-white">
+      <div class="w-full h-full flex relative">
+        <div class="grow px-3 absolute w-full h-full">
+          <div
+            class="w-full h-full mx-auto flex justify-center items-center text-4xl font-semibold"
+          >
+            가디의삶
+          </div>
+        </div>
+        <div class="grow flex justify-end items-center px-5">
+          <div>퇴근하기</div>
+        </div>
       </div>
     </header>
 
