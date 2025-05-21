@@ -29,3 +29,32 @@ export const fetchAir = async () => {
     console.log(err)
   }
 }
+
+export const fetchAirAll = async () => {
+  try {
+    const res = await axios.get(
+      'http://openAPI.seoul.go.kr:8088/625873796e786f61373379416f617a/json/RealtimeCityAir/1/25/',
+    )
+
+    if (res.data?.RealtimeCityAir?.RESULT?.CODE === 'INFO-000') {
+      return res.data.RealtimeCityAir.row.map((item) => ({
+        station: item.MSRSTE_NM,
+        region: item.MSRRGN_NM,
+        dateTime: item.MSRDT,
+        pm10: item.PM10,
+        pm25: item.PM25,
+        o3: item.O3,
+        no2: item.NO2,
+        co: item.CO,
+        so2: item.SO2,
+        airQuality: item.IDEX_NM,
+        airQualityValue: item.IDEX_MVL,
+        mainPollutant: item.ARPLT_MAIN,
+      }))
+    } else {
+      throw new Error('API error or invalid data')
+    }
+  } catch (err) {
+    console.log(err)
+  }
+}
