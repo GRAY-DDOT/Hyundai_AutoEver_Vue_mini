@@ -46,7 +46,7 @@ const formattedUvMsg = computed(() => {
     <p>🌡 최고/최저 온도 : {{ weather.MAX_TEMP }}°C / {{ weather.MIN_TEMP }}°C</p>
     <hr />
     <p>
-      💧 습도 : {{ weather.HUMIDITY }}% / 강 : {{ weather.PRECIPITATION }} ({{
+      💧 습도 : {{ weather.HUMIDITY }}% / 🌧️ 강수 : {{ weather.PRECIPITATION }} ({{
         weather.PRECPT_TYPE
       }})
     </p>
@@ -81,6 +81,7 @@ h2 {
   padding-top: 10px;
   padding-bottom: 5px;
 }
+
 div {
   padding: 10px;
 }
