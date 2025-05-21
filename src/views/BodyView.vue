@@ -19,13 +19,13 @@
           <Weather></Weather>
         </div>
 
+        <!-- 소희 -->
         <div
-          class="flex justify-center max-h-96 items-center rounded-xl-full h-full overflow-hidden shadow-lg border border-gray-200"
+          class="flex justify-center h-96 rounded-xl-full overflow-auto shadow-lg border border-gray-200"
           @click=""
         >
-          <div class="size-4/5 bg-red-600 hover:bg-red-600 text-white">TEST</div>
+          <Subway />
         </div>
-
         <!-- 카드 4 -->
         <div
           class="rounded-xl max-w-full max-h-full overflow-hidden shadow-lg border border-gray-200 flex justify-center items-center cursor-pointer"
@@ -40,8 +40,8 @@
 
 <script setup>
 import Weather from '../views/personal/hhc/Weather.vue'
+import Subway from './personal/ksh/Subway.vue'
 import air from './personal/ktm/air.vue'
-
 import Traffic from './personal/ccw/Traffic.vue'
 
 import { useAirModalStore } from '@/stores/airmodal'
