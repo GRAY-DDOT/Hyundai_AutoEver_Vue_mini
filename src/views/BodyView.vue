@@ -15,7 +15,7 @@
         </div>
 
         <!-- 소희 -->
-        <div class="card-container overflow-y-scroll" @click="">
+        <div class="card-container overflow-hidden" @click="">
           <Subway />
         </div>
         <!-- 카드 4 -->
@@ -37,6 +37,12 @@ import Traffic from './personal/ccw/Traffic.vue'
 import { useAirModalStore } from '@/stores/airmodal'
 import { fetchAirAll } from '@/model/api_air'
 
+const props = defineProps({
+  isWork: true,
+})
+
+const isWork = toRef(props, 'isWork')
+
 const airModal = useAirModalStore()
 const airList = ref([])
 
@@ -47,8 +53,12 @@ const openAirModal = async () => {
 }
 </script>
 
-<style scoped>
+<style>
 .card-container {
   @apply max-h-96 h-full items-center rounded-lg shadow-lg border border-gray-200;
+}
+
+.leave-work {
+  @apply animate-spin size-0;
 }
 </style>

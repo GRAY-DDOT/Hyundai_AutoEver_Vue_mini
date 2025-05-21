@@ -10,7 +10,9 @@
           </div>
         </div>
         <div class="grow flex justify-end items-center px-5">
-          <div>퇴근하기</div>
+          <div class="bg-white p-3 rounded-lg">
+            <div class="text-black text-xs">퇴근하기</div>
+          </div>
         </div>
       </div>
     </header>
