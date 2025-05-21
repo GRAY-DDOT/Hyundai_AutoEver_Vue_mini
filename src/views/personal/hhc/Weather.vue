@@ -1,7 +1,7 @@
 <script setup>
-import { computed } from 'vue'
-
+import { computed, ref } from 'vue'
 import { useRealTimeStore } from '@/stores/useRealTimeStore'
+import ForecastModal from '@/views/personal/hhc/ForecastModal.vue'
 
 // useRealTimeStore : 실시간 정보 전역 저장소
 const store = useRealTimeStore()
@@ -16,11 +16,12 @@ const isLoading = computed(() => store.isLoading)
 const isError = computed(() => store.isError)
 const isEmpty = computed(() => store.isEmpty)
 
-// 날짜 출력 편의를 위한 함수
-function formatTime(fcstDt) {
-  const dateStr = `${fcstDt.slice(0, 4)}-${fcstDt.slice(4, 6)}-${fcstDt.slice(6, 8)} `
-  const timeStr = `${fcstDt.slice(8, 10)}:${fcstDt.slice(10, 12)}`
-  return dateStr + timeStr
+// 모달 컴포넌트 참조
+const forecastModalRef = ref(null)
+
+// 모달 열기 함수
+function openForecastModal() {
+  forecastModalRef.value.openModal()
 }
 </script>
 
@@ -28,36 +29,23 @@ function formatTime(fcstDt) {
 <template>
   <div v-if="!isLoading && !isError && !isEmpty">
     <h3 class="mt-4">날씨</h3>
-    <p>📅 시간: {{ weather.WEATHER_TIME }}</p>
-    <p>🌡 온도: {{ weather.TEMP }}°C (체감: {{ weather.SENSIBLE_TEMP }}°C)</p>
+    <!--      <Modal.vue />-->
+    <p>⏱️ 기준 시간: {{ weather.WEATHER_TIME }}</p>
+    <p>🌡 현재 온도: {{ weather.TEMP }}°C (체감: {{ weather.SENSIBLE_TEMP }}°C)</p>
     <p>🌡 최고/최저 온도: {{ weather.MAX_TEMP }}°C / {{ weather.MIN_TEMP }}°C</p>
     <p>💧 습도: {{ weather.HUMIDITY }}%</p>
-    <p>🌬 바람: {{ weather.WIND_DIRCT }} {{ weather.WIND_SPD }} m/s</p>
-    <p>☔ 강수량: {{ weather.PRECIPITATION }} ({{ weather.PRECPT_TYPE }})</p>
-    <p>🌅 일출/일몰: {{ weather.SUNRISE }} / {{ weather.SUNSET }}</p>
+    <p>☔ 비: {{ weather.PRECIPITATION }} ({{ weather.PRECPT_TYPE }})</p>
     <p>🌞 자외선: {{ weather.UV_INDEX }} ({{ weather.UV_INDEX_LVL }}), {{ weather.UV_MSG }}</p>
-    <p>🌫 미세먼지(PM10): {{ weather.PM10 }} ({{ weather.PM10_INDEX }})</p>
-    <p>🌫 초미세먼지(PM2.5): {{ weather.PM25 }} ({{ weather.PM25_INDEX }})</p>
-    <p>🌍 대기질: {{ weather.AIR_IDX }} ({{ weather.AIR_IDX_MAIN }}), {{ weather.AIR_MSG }}</p>
-    <h3 class="mt-4">24시간 예보</h3>
-    <table class="table-auto border mt-2">
-      <thead>
-        <tr>
-          <th class="border px-2">시간</th>
-          <th class="border px-2">기온</th>
-          <th class="border px-2">강수확률</th>
-          <th class="border px-2">하늘 상태</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="fcst in forecast" :key="fcst.FCST_DT">
-          <td class="border px-2">{{ formatTime(fcst.FCST_DT) }}</td>
-          <td class="border px-2">{{ fcst.TEMP }}°C</td>
-          <td class="border px-2">{{ fcst.RAIN_CHANCE }}%</td>
-          <td class="border px-2">{{ fcst.SKY_STTS }}</td>
-        </tr>
-      </tbody>
-    </table>
+    <!-- 예보정보 보기 버튼 추가 -->
+    <button
+      @click="openForecastModal"
+      class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 mt-4"
+    >
+      예보정보 보기
+    </button>
+
+    <!-- 모달 컴포넌트 추가 (ref로 참조하고 forecast 데이터 전달) -->
+    <ForecastModal ref="forecastModalRef" :forecast="forecast" />
   </div>
 
   <p v-else-if="isLoading">Loading...</p>
