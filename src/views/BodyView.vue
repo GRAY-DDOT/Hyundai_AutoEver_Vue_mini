@@ -5,15 +5,15 @@
     >
       <!-- 카드 1 -->
       <div
-        class="flex justify-center max-h-96 items-center rounded-xl-full h-full overflow-hidden shadow-lg border border-gray-200"
+        class="max-h-96 items-center rounded-xl-full h-full overflow-hidden shadow-lg border border-gray-200"
         @click=""
       >
-        <TrafficCard />
+        <Traffic />
       </div>
 
       <!-- 카드 2 -->
       <div
-        class="rounded-xl max-w-full max-h-full overflow-hidden shadow-lg border border-gray-200"
+        class="rounded-xl max-w-full max-h-44 overflow-y-scroll shadow-lg border border-gray-200 sm:max-h-full"
       >
         <Weather></Weather>
       </div>
@@ -38,5 +38,6 @@
 <script setup>
 import Weather from '../views/personal/hhc/Weather.vue'
 
-import TrafficCard from '@/components/ccw/TrafficCard.vue'
+import air from './personal/ktm/air.vue'
+import Traffic from './personal/ccw/Traffic.vue'
 </script>
