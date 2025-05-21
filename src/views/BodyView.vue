@@ -2,11 +2,11 @@
   <main class="px-16 py-10">
     <div class="h-full w-full flex justify-center">
       <div
-        class="grid grid-cols-1 items-center max-w-96 sm:max-w-full md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-6"
+        class="grid grid-cols-1 items-center transition-[max-width] duration-200 ease-in-out max-w-96 sm:max-w-full md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-6"
       >
         <!-- 카드 1 -->
         <div
-          class="max-h-96 items-center rounded-xl-full h-full overflow-hidden shadow-lg border border-gray-200"
+          class="max-h-96 h-full overflow-hidden items-center rounded-xl-full shadow-lg border border-gray-200"
           @click=""
         >
           <Traffic />
