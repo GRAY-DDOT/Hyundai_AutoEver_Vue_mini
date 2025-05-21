@@ -23,23 +23,40 @@ const forecastModalRef = ref(null)
 function openForecastModal() {
   forecastModalRef.value.openModal()
 }
+
+const formattedUvMsg = computed(() => {
+  if (!weather.value?.UV_MSG) return ''
+  return weather.value.UV_MSG.replace(/\./g, '.<br>')
+})
 </script>
 
 // 이하의 접근 방법을 참고해서 출력
 <template>
-  <div v-if="!isLoading && !isError && !isEmpty">
-    <h3 class="mt-4">날씨</h3>
+  <div
+    v-if="!isLoading && !isError && !isEmpty"
+    class=" items-center justify-center mx-auto my-[50px] rounded-lg max-w-[800px]"
+  >
+    <h2 class="text-center font-semibold">날씨</h2>
     <!--      <Modal.vue />-->
-    <p>⏱️ 기준 시간: {{ weather.WEATHER_TIME }}</p>
-    <p>🌡 현재 온도: {{ weather.TEMP }}°C (체감: {{ weather.SENSIBLE_TEMP }}°C)</p>
-    <p>🌡 최고/최저 온도: {{ weather.MAX_TEMP }}°C / {{ weather.MIN_TEMP }}°C</p>
-    <p>💧 습도: {{ weather.HUMIDITY }}%</p>
-    <p>☔ 비: {{ weather.PRECIPITATION }} ({{ weather.PRECPT_TYPE }})</p>
-    <p>🌞 자외선: {{ weather.UV_INDEX }} ({{ weather.UV_INDEX_LVL }}), {{ weather.UV_MSG }}</p>
-    <!-- 예보정보 보기 버튼 추가 -->
+    <hr />
+    <p>⏱️ 기준 시간 : {{ weather.WEATHER_TIME }}</p>
+    <hr />
+    <p>🌡 현재 온도 : {{ weather.TEMP }}°C (체감 : {{ weather.SENSIBLE_TEMP }}°C)</p>
+    <hr />
+    <p>🌡 최고/최저 온도 : {{ weather.MAX_TEMP }}°C / {{ weather.MIN_TEMP }}°C</p>
+    <hr />
+    <p>
+      💧 습도 : {{ weather.HUMIDITY }}% / 강 : {{ weather.PRECIPITATION }} ({{
+        weather.PRECPT_TYPE
+      }})
+    </p>
+    <hr />
+    <p>🌞 자외선 지수 : {{ weather.UV_INDEX }} ({{ weather.UV_INDEX_LVL }})</p>
+    <hr />
+    <p v-html="formattedUvMsg" class="text-xs"></p>
     <button
       @click="openForecastModal"
-      class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 mt-4"
+      class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 mt-4 mx-auto block"
     >
       예보정보 보기
     </button>
@@ -52,3 +69,15 @@ function openForecastModal() {
   <p v-else-if="isError">Error occurred!</p>
   <p v-else>No data available.</p>
 </template>
+<style scoped>
+p {
+  padding: 2px;
+  text-align: center;
+}
+
+h2 {
+  font-size: 1.7rem;
+  font-weight: bold;
+  padding-bottom: 20px;
+}
+</style>

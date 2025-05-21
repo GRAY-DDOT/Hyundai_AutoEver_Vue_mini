@@ -14,7 +14,7 @@
 
         <!-- 카드 2 -->
         <div
-          class="rounded-xl max-w-full max-h-44 overflow-y-scroll shadow-lg border border-gray-200 sm:max-h-96"
+          class="flex flex-col justify-center rounded-xl max-w-full max-h-44 shadow-lg border border-gray-200 sm:max-h-96"
         >
           <Weather></Weather>
         </div>
@@ -47,6 +47,7 @@ import Traffic from './personal/ccw/Traffic.vue'
 
 import { useAirModalStore } from '@/stores/airmodal'
 import { fetchAirAll } from '@/model/api_air'
+
 const airModal = useAirModalStore()
 const airList = ref([])
 
