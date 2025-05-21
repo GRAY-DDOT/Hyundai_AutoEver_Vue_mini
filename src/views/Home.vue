@@ -4,7 +4,7 @@
       <div class="w-full h-full mx-auto flex justify-center items-center">가디의삶</div>
     </header>
 
-    <main class="grow">
+    <main class="grow flex justify-center">
       <!-- 각 페이지 컴포넌트 출력 위치 -->
       <router-view />
     </main>
