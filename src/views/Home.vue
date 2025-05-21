@@ -8,14 +8,11 @@
       <!-- 각 페이지 컴포넌트 출력 위치 -->
       <router-view />
     </main>
-
-    <footer class="h-24 bg-blue-800"></footer>
   </div>
+  <footer class="h-24 bg-blue-800"></footer>
 </template>
 
-<script setup>
-const name = '홍길동'
-</script>
+<script setup></script>
 
 <style scoped>
 /* main에 @apply는 필요 없음. 클래스에서 처리 */
