@@ -6,6 +6,7 @@
     <div class="bg-white p-6 rounded shadow-md w-full max-w-sm text-center">
       <h2 class="text-lg font-bold mb-2">{{ modal.title }}</h2>
       <p class="mb-4">{{ modal.message }}</p>
+      <slot></slot>
       <button
         @click="modal.close"
         class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
