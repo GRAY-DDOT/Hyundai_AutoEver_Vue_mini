@@ -34,7 +34,7 @@ const formattedUvMsg = computed(() => {
 <template>
   <div
     v-if="!isLoading && !isError && !isEmpty"
-    class=" items-center justify-center mx-auto my-[50px] rounded-lg max-w-[800px]"
+    class="items-center justify-center mx-auto rounded-lg max-w-[800px]"
   >
     <h2 class="text-center font-semibold">날씨</h2>
     <!--      <Modal.vue />-->
@@ -78,6 +78,10 @@ p {
 h2 {
   font-size: 1.7rem;
   font-weight: bold;
-  padding-bottom: 20px;
+  padding-top: 10px;
+  padding-bottom: 5px;
+}
+div {
+  padding: 10px;
 }
 </style>
