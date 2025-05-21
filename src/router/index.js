@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
+
 import BodyView from '@/views/BodyView.vue'
 import Home from '@/views/Home.vue'
 

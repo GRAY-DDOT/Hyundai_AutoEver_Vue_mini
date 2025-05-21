@@ -1,6 +1,11 @@
 <template>
-  <main class="px-16 py-10 transition-all duration-200 ease-in-out lg:px-6">
-    <div class="h-full w-full flex justify-center">
+  <main
+    :class="[
+      'px-16 py-10 transition-all duration-200 ease-in-out lg:px-6',
+      { 'leave-work': isWork },
+    ]"
+  >
+    <div :class="['h-full w-full flex justify-center']">
       <div
         class="grid grid-cols-1 items-center transition-[max-width] duration-200 ease-in-out max-w-96 sm:max-w-full md:grid-cols-2 xl:grid-cols-4 2xl:grid-cols-4 gap-6"
       >
@@ -36,12 +41,19 @@ import Traffic from './personal/ccw/Traffic.vue'
 
 import { useAirModalStore } from '@/stores/airmodal'
 import { fetchAirAll } from '@/model/api_air'
+import { useEventStore } from '@/stores/event'
 
-const props = defineProps({
-  isWork: true,
+const buttonEventStore = useEventStore()
+
+const isWork = computed(() => {
+  return buttonEventStore.isWork
 })
 
-const isWork = toRef(props, 'isWork')
+// const leaveGasan = computed(()=>{
+//   if(!isWork){
+
+//   }
+// })
 
 const airModal = useAirModalStore()
 const airList = ref([])
@@ -59,6 +71,7 @@ const openAirModal = async () => {
 }
 
 .leave-work {
-  @apply animate-spin size-0;
+  @apply animate-spin;
+  @apply transition-opacity duration-1000 opacity-0;
 }
 </style>

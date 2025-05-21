@@ -9,10 +9,18 @@
             가디의삶
           </div>
         </div>
-        <div class="grow flex justify-end items-center px-5">
-          <div class="bg-white p-3 rounded-lg">
+        <div class="grow flex justify-end items-center px-5 z-10">
+          <button
+            class="bg-white p-3 rounded-lg"
+            @click="
+              () => {
+                eventStore.done()
+                console.log('버튼 이벤트 저장 완료!')
+              }
+            "
+          >
             <div class="text-black text-xs">퇴근하기</div>
-          </div>
+          </button>
         </div>
       </div>
     </header>
@@ -22,10 +30,18 @@
       <router-view />
     </main>
   </div>
-  <footer class="h-24 bg-blue-800 text-white"></footer>
+  <footer class="h-12 bg-sky-950 text-white">
+    <div class="w-full h-full flex items-center justify-center opacity-35 font-light">
+      모든 저작권은 없습니다
+    </div>
+  </footer>
 </template>
 
-<script setup></script>
+<script setup>
+import { useEventStore } from '@/stores/event'
+
+const eventStore = useEventStore()
+</script>
 
 <style scoped>
 /* main에 @apply는 필요 없음. 클래스에서 처리 */

@@ -8,7 +8,7 @@
           <div class="text-9xl sm:text-9xl md:text-9xl">{{ checkSpd }}</div>
         </div>
         <div
-          class="grow w-full text-center mt-4 text-ellipsis whitespace-nowrap overflow-hidden max-w-full max-h-full"
+          class="grow w-full text-center my-4 text-ellipsis whitespace-nowrap overflow-hidden max-w-full max-h-full"
         >
           <div
             class="inline-block px-5 py-2 rounded-2xl shadow-lg border border-gray-200 bg-slate-50 space-y-4"
