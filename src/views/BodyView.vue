@@ -15,7 +15,7 @@
         </div>
 
         <!-- 소희 -->
-        <div class="card-container overflow-y-scroll" @click="">
+        <div class="card-container overflow-hidden" @click="">
           <Subway />
         </div>
         <!-- 카드 4 -->
