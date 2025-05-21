@@ -1,8 +1,8 @@
 <template>
   <div v-if="store.isLoading">
     <div class="fixed w-full h-full z-50 flex justify-center items-center">
-      <div class="w-96 h-96 overflow-clip opacity-100 z-50 relative">
-        <img src="@/assets/icon.png" />
+      <div class="w-72 h-72 overflow-clip opacity-100 z-50 relative">
+        <img src="@/assets/icon.svg" />
       </div>
       <div class="absolute w-full text-center z-50 opacity-100 text-white text-3xl translate-y-32">
         로딩 중...
