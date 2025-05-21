@@ -1,12 +1,12 @@
 <template>
   <div class="w-full bg-red-600 hover:bg-red-600 text-white">
-    <div v-if="isReady">
-      testtse
-      <p v-for="rt in tmp" :key="rt.LINK_ID" class="text-lg font-semibold text-black">
-        {{ rt.LINK_ID }}
-      </p>
+    <!-- 데이터를 뿌려주는 방법 -->
+    <div v-if="!isLoading && !isError && !isEmpty">
+      {{ traffic.ROAD_MSG }} <br />
+      {{ traffic.ROAD_TRAFFIC_IDX }} <br />
+      {{ traffic.ROAD_TRAFFIC_SPD }} <br />
+      {{ traffic.ROAD_TRAFFIC_TIME }}
     </div>
-    <p class="font-medium text-gray-500">나쁨</p>
   </div>
 </template>
 
@@ -16,18 +16,9 @@
 import { useRealTimeStore } from '@/stores/useRealTimeStore.js'
 
 const store = useRealTimeStore()
-const isReady = ref(false)
-const traffics = ref()
-const tmp = ref()
+const traffic = computed(() => store.raw?.ROAD_TRAFFIC_STTS?.AVG_ROAD_DATA ?? {})
 
-watch(
-  () => store.done,
-  (nowLoading) => {
-    if (nowLoading === false) {
-      isReady.value = true
-      const { a, b, roadTraffic, c, d } = store
-      tmp.value = roadTraffic
-    }
-  },
-)
+const isLoading = computed(() => store.isLoading)
+const isError = computed(() => store.isError)
+const isEmpty = computed(() => store.isEmpty)
 </script>

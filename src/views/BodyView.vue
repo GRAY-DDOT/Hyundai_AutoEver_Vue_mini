@@ -8,7 +8,7 @@
         class="flex justify-center max-h-96 items-center rounded-xl-full h-full overflow-hidden shadow-lg border border-gray-200"
         @click=""
       >
-        <TrafficStatus />
+        <TrafficCard />
       </div>
 
       <!-- 카드 2 -->
@@ -37,4 +37,6 @@
 
 <script setup>
 import Weather from '../views/personal/hhc/Weather.vue'
+
+import TrafficCard from '@/components/ccw/TrafficCard.vue'
 </script>
