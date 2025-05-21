@@ -18,11 +18,12 @@
         <Weather></Weather>
       </div>
 
+      <!-- 소희 -->
       <div
-        class="flex justify-center max-h-96 items-center rounded-xl-full h-full overflow-hidden shadow-lg border border-gray-200"
+        class="flex justify-center h-96 rounded-xl-full overflow-auto shadow-lg border border-gray-200"
         @click=""
       >
-        <div class="size-4/5 bg-red-600 hover:bg-red-600 text-white">TEST</div>
+        <Subway />
       </div>
 
       <div
@@ -37,4 +38,6 @@
 
 <script setup>
 import Weather from '../views/personal/hhc/Weather.vue'
+
+import Subway from './personal/ksh/Subway.vue'
 </script>
