@@ -36,6 +36,7 @@ import Traffic from './personal/ccw/Traffic.vue'
 
 import { useAirModalStore } from '@/stores/airmodal'
 import { fetchAirAll } from '@/model/api_air'
+
 const airModal = useAirModalStore()
 const airList = ref([])
 
