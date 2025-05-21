@@ -1,36 +1,25 @@
 <template>
-  <main class="px-16 py-10">
+  <main class="px-16 py-10 transition-all duration-200 ease-in-out lg:px-6">
     <div class="h-full w-full flex justify-center">
       <div
         class="grid grid-cols-1 items-center transition-[max-width] duration-200 ease-in-out max-w-96 sm:max-w-full md:grid-cols-2 xl:grid-cols-4 2xl:grid-cols-4 gap-6"
       >
         <!-- 카드 1 -->
-        <div
-          class="max-h-96 h-full overflow-hidden items-center rounded-xl-full shadow-lg border border-gray-200"
-          @click=""
-        >
+        <div class="card-container" @click="">
           <Traffic />
         </div>
 
         <!-- 카드 2 -->
-        <div
-          class="flex flex-col justify-center rounded-xl max-w-full max-h-44 shadow-lg border border-gray-200 sm:max-h-96"
-        >
+        <div class="card-container">
           <Weather></Weather>
         </div>
 
         <!-- 소희 -->
-        <div
-          class="flex justify-center h-96 rounded-xl-full overflow-auto shadow-lg border border-gray-200"
-          @click=""
-        >
+        <div class="card-container overflow-y-scroll" @click="">
           <Subway />
         </div>
         <!-- 카드 4 -->
-        <div
-          class="flex justify-center items-center h-96 rounded-xl overflow-auto shadow-lg border border-gray-200 cursor-pointer"
-          @click="openAirModal"
-        >
+        <div class="card-container" @click="openAirModal">
           <air />
         </div>
       </div>
@@ -57,3 +46,9 @@ const openAirModal = async () => {
   airModal.open({ title: '서울시', airList })
 }
 </script>
+
+<style scoped>
+.card-container {
+  @apply max-h-96 h-full items-center rounded-lg shadow-lg border border-gray-200;
+}
+</style>

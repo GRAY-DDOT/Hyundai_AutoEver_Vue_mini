@@ -1,7 +1,18 @@
 <template>
   <div class="flex flex-col min-h-screen">
-    <header class="h-24 bg-sky-950 text-white text-4xl">
-      <div class="w-full h-full mx-auto flex justify-center items-center">가디의삶</div>
+    <header class="h-24 bg-sky-950 text-white">
+      <div class="w-full h-full flex relative">
+        <div class="grow px-3 absolute w-full h-full">
+          <div
+            class="w-full h-full mx-auto flex justify-center items-center text-4xl font-semibold"
+          >
+            가디의삶
+          </div>
+        </div>
+        <div class="grow flex justify-end items-center px-5">
+          <div>퇴근하기</div>
+        </div>
+      </div>
     </header>
 
     <main class="grow flex justify-center">
@@ -9,7 +20,7 @@
       <router-view />
     </main>
   </div>
-  <footer class="h-24 bg-blue-800"></footer>
+  <footer class="h-24 bg-blue-800 text-white"></footer>
 </template>
 
 <script setup></script>
