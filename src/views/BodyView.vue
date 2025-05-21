@@ -1,35 +1,37 @@
 <template>
-  <main class="px-16 py-10 h-screen">
-    <div
-      class="grid grid-cols-1 h-full items-center md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-6"
-    >
-      <!-- 카드 1 -->
+  <main class="px-16 py-10">
+    <div class="h-full w-full flex justify-center">
       <div
-        class="max-h-96 items-center rounded-xl-full h-full overflow-hidden shadow-lg border border-gray-200"
-        @click=""
+        class="grid grid-cols-1 items-center max-w-96 sm:max-w-full md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-6"
       >
-        <Traffic />
-      </div>
+        <!-- 카드 1 -->
+        <div
+          class="max-h-96 items-center rounded-xl-full h-full overflow-hidden shadow-lg border border-gray-200"
+          @click=""
+        >
+          <Traffic />
+        </div>
 
-      <!-- 카드 2 -->
-      <div
-        class="rounded-xl max-w-full max-h-44 overflow-y-scroll shadow-lg border border-gray-200 sm:max-h-full"
-      >
-        <Weather></Weather>
-      </div>
+        <!-- 카드 2 -->
+        <div
+          class="rounded-xl max-w-full max-h-44 overflow-y-scroll shadow-lg border border-gray-200 sm:max-h-96"
+        >
+          <Weather></Weather>
+        </div>
 
-      <div
-        class="flex justify-center max-h-96 items-center rounded-xl-full h-full overflow-hidden shadow-lg border border-gray-200"
-        @click=""
-      >
-        <div class="size-4/5 bg-red-600 hover:bg-red-600 text-white">TEST</div>
-      </div>
+        <div
+          class="flex justify-center max-h-96 items-center rounded-xl-full h-full overflow-hidden shadow-lg border border-gray-200"
+          @click=""
+        >
+          <div class="size-4/5 bg-red-600 hover:bg-red-600 text-white">TEST</div>
+        </div>
 
-      <!-- 카드 4 -->
-      <div
-        class="rounded-xl max-w-full max-h-full overflow-hidden shadow-lg border border-gray-200"
-      >
-        <air />
+        <!-- 카드 4 -->
+        <div
+          class="rounded-xl max-w-full max-h-full overflow-hidden shadow-lg border border-gray-200"
+        >
+          <air />
+        </div>
       </div>
     </div>
   </main>
