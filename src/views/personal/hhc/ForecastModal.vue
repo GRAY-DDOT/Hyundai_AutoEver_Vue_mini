@@ -34,7 +34,7 @@ import { defineProps } from 'vue'
 import Modal from '@/views/Modal.vue'
 import { useModalStore } from '@/stores/modal'
 
-const props = defineProps({
+defineProps({
   forecast: {
     type: Array,
     default: () => [],
