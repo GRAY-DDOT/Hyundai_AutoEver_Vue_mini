@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full h-full flex items-center justify-center">
+  <div class="w-full h-full flex items-center justify-center cursor-pointer">
     <aircard v-if="airInfo" :airInfo="airInfo" />
   </div>
 </template>
