@@ -290,6 +290,6 @@
 ## 로딩
 <p align="center"><img width="475" alt="Image" src="https://github.com/user-attachments/assets/31ac6380-b74a-44cb-9cf2-edbf0196fe23" />
 
-## 기믹
+## 기믹 [ 퇴근하기 ]
 
 <p align="center"><img width="1028" alt="Image" src="https://github.com/user-attachments/assets/77f0c8a4-bbad-45c9-a7fa-449935d4dbbf" />
