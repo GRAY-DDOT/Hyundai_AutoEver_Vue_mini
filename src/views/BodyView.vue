@@ -1,9 +1,10 @@
 <template>
   <main
-    :class="[
-      'px-16 py-10 transition-all duration-200 ease-in-out lg:px-6',
-      { 'leave-work': isWork },
-    ]"
+    :class="{
+      'px-16 py-10 transition-all duration-200 ease-in-out lg:px-6': true,
+      'leave-work': isWork,
+      'loading-done': dataStore.isLoading,
+    }"
   >
     <div :class="['h-full w-full flex justify-center']">
       <div
@@ -42,8 +43,10 @@ import Traffic from './personal/ccw/Traffic.vue'
 import { useAirModalStore } from '@/stores/airmodal'
 import { fetchAirAll } from '@/model/api_air'
 import { useEventStore } from '@/stores/event'
+import { useRealTimeStore } from '@/stores/useRealTimeStore'
 
 const buttonEventStore = useEventStore()
+const dataStore = useRealTimeStore()
 
 const isWork = computed(() => {
   return buttonEventStore.isWork
@@ -73,5 +76,9 @@ const openAirModal = async () => {
 .leave-work {
   @apply animate-spin;
   @apply transition-opacity duration-1000 opacity-0;
+}
+
+.loading-done {
+  @apply hidden opacity-0;
 }
 </style>
