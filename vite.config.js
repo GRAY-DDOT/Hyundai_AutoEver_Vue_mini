@@ -19,7 +19,6 @@ export default defineConfig({
     vue(),
     vueDevTools(),
     // tailwindcss(),
-
     AutoImport({
       imports: [
         'vue',
@@ -49,7 +48,7 @@ export default defineConfig({
       autoInstall: true,
     }),
   ],
-
+  base: '/Hyundai_AutoEver_Vue_mini/',
   // 👉 경로 별칭
   resolve: {
     alias: {
